@@ -42,7 +42,7 @@ export default function Header() {
 
                 {/* 데스크탑 메뉴 */}
                 <nav className="hidden md:flex space-x-8 text-gray-800 text-sm font-semibold">
-                    <Link  href="#about" className="hover:text-gold transition-colors">브랜드 소개</Link >
+                    <Link  href="/about" className="hover:text-gold transition-colors">브랜드 소개</Link >
                     <Link  href="/services" className="hover:text-gold transition-colors">시술 안내</Link >
                     <Link  href="/contact" className="hover:text-gold transition-colors">오시는 길 / 문의</Link >
                 </nav>
@@ -51,7 +51,8 @@ export default function Header() {
             {/* 모바일 메뉴 */}
             {menuOpen && (
                 <nav className="md:hidden absolute top-20 left-0 w-full bg-white shadow-md z-10 flex flex-col space-y-2 text-gray-800 text-sm font-semibold px-6 py-4">
-                    <Link  href="#about" className="hover:text-gold transition-colors">브랜드 소개</Link >
+                    <Link  href="/about" className="hover:text-gold transition-colors">브랜드 소개</Link >
+                    <Link  href="/galary" className="hover:text-gold transition-colors">갤러리</Link >
                     <Link  href="/services" className="hover:text-gold transition-colors">시술 안내</Link >
                     <Link  href="/contact" className="hover:text-gold transition-colors">오시는 길 / 문의</Link >
                 </nav>
