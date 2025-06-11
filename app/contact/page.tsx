@@ -1,16 +1,8 @@
 'use client' // App Router인 경우 반드시 필요
 
-declare global {
-    interface Window {
-        kakao: {
-            maps: {
-                Map: any
-                LatLng: any
-                load: (callback: () => void) => void
-                // 필요한 함수만 정의
-            }
-        }
-    }
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+interface Window {
+    kakao: any
 }
 
 import Script from 'next/script'
