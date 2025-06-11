@@ -1,11 +1,5 @@
 'use client' // App Router인 경우 반드시 필요
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-declare global {
-    interface Window {
-        kakao: any
-    }
-}
 import Script from 'next/script'
 import Hero from '@/components/Hero'
 import Header from "@/components/Header";
