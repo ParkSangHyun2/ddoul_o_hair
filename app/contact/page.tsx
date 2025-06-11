@@ -1,4 +1,9 @@
 'use client' // App Router인 경우 반드시 필요
+declare global {
+    interface Window {
+        kakao: any
+    }
+}
 
 import Script from 'next/script'
 
