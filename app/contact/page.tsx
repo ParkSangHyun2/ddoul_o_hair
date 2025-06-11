@@ -1,7 +1,15 @@
 'use client' // App Router인 경우 반드시 필요
+
 declare global {
     interface Window {
-        kakao: any
+        kakao: {
+            maps: {
+                Map: any
+                LatLng: any
+                load: (callback: () => void) => void
+                // 필요한 함수만 정의
+            }
+        }
     }
 }
 
