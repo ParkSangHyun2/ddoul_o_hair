@@ -5,6 +5,8 @@ import Hero from '@/components/Hero'
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AddressInfo from "@/components/AddressInfo";
+import {FaCalendarAlt} from "react-icons/fa";
+import NaverMapButton from "@/components/NaverMapButton";
 
 export default function Contact() {
     return (<>
@@ -34,8 +36,9 @@ export default function Contact() {
             <Header/>
             <Hero title="오시는길" desc=""/>
             <AddressInfo/>
+            <NaverMapButton />
             <div id="map" style={{width: '400px', height: '400px'}}></div>
-            <div className="flex flex-1"/>
+            {/*<div className="flex flex-1"/>*/}
             <Footer/>
         </main>
     </>)
