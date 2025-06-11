@@ -5,7 +5,6 @@ import Hero from '@/components/Hero'
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AddressInfo from "@/components/AddressInfo";
-import {FaCalendarAlt} from "react-icons/fa";
 import NaverMapButton from "@/components/NaverMapButton";
 
 export default function Contact() {
