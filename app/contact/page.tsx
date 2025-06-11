@@ -37,7 +37,7 @@ export default function Contact() {
             <AddressInfo/>
             <NaverMapButton />
             <div id="map" style={{width: '400px', height: '400px'}}></div>
-            {/*<div className="flex flex-1"/>*/}
+            <div className="flex flex-1"/>
             <Footer/>
         </main>
     </>)
