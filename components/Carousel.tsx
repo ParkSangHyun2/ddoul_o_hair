@@ -25,7 +25,7 @@ export default function Carousel() {
         <div className="relative w-full max-w-xl mx-auto overflow-hidden rounded-2xl shadow-lg">
             <div className="flex transition-transform duration-500" style={{ transform: `translateX(-${current * 100}%)` }}>
                 {images.map((src, idx) => (
-                    <img key={idx} src={src} className="w-full flex-shrink-0 object-cover h-64" />
+                    <img key={idx} src={src} className="w-full flex-shrink-0 object-cover md:h-80 h-64" />
                 ))}
             </div>
 
