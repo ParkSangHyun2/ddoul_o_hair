@@ -1,9 +1,10 @@
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 body {
   font-family: 'Noto Sans KR', sans-serif;
   background-color: white;
+}
+
+@theme {
+  --color-gold: #bfa45a
 }
