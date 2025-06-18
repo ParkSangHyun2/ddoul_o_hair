@@ -4,8 +4,7 @@ import Footer from "@/components/Footer";
 
 export default function ServicesPage() {
     return (
-        <main className="min-h-screen flex flex-col items-center text-center px-4 gap-4 pt-[80px]">
-            <Header/>
+        <>
             <Hero title="시술 안내" desc=""/>
 
             <section className="space-y-8">
@@ -48,7 +47,6 @@ export default function ServicesPage() {
             <p className="mt-12 text-sm text-gray-500 text-center">
                 * 시술 가격은 모발 상태 및 길이에 따라 변동될 수 있습니다.
             </p>
-            <Footer/>
-        </main>
+        </>
     )
 }

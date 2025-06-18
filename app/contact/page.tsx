@@ -36,14 +36,12 @@ export default function Contact() {
             src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=5e3b05819caae8676548c85b7130d015&autoload=false`}
             onLoad={() => setScriptLoaded(true)}
         />
-        <main className="min-h-screen flex flex-col items-center text-center px-4 gap-4 pt-[80px]">
-            <Header/>
+        <>
             <Hero title="오시는길" desc=""/>
             <AddressInfo/>
             <NaverMapButton />
             <div id="map" style={{width: '400px', height: '400px'}}></div>
             <div className="flex flex-1"/>
-            <Footer/>
-        </main>
+        </>
     </>)
 }

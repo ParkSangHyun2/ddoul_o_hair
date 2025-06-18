@@ -1,34 +1,35 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import type {Metadata} from "next";
+import {Geist, Geist_Mono} from "next/font/google";
 import './globals.css'
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+    variable: "--font-geist-sans", subsets: ["latin"],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+    variable: "--font-geist-mono", subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "뜰오헤어 안중점",
-  description: "뜰오헤어 웹사이트",
+    title: "뜰오헤어 안중점", description: "뜰오헤어 웹사이트",
 };
 
 export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
+                                       children,
+                                   }: Readonly<{
+    children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased select-none`}
-      >
-        {children}
-      </body>
-    </html>
-  );
+    return (<html lang="en">
+        <body
+            className={`${geistSans.variable} ${geistMono.variable} antialiased select-none`}
+        >
+        <main className="min-h-screen flex flex-col items-center text-center px-4 gap-4 pt-[80px]">
+            <Header/>
+            {children}
+            <Footer/>
+        </main>
+        </body>
+        </html>);
 }

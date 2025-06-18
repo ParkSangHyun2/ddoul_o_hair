@@ -14,8 +14,7 @@ export default function GalleryPage() {
         document.body.appendChild(script);
     });
 
-    return (<main className="min-h-screen flex flex-col items-center text-center px-4 gap-2 pt-[80px]">
-            <Header/>
+    return (<>
             <Hero title="갤러리" desc="Powered by Instagram"/>
             <div className="flex w-full h-full rounded-lg overflow-hidden shadow-md">
                 {/* 샘플 */}
@@ -29,6 +28,5 @@ export default function GalleryPage() {
                 {/*        style={{border:0, overflow:'hidden'}}></iframe>*/}
 
             </div>
-            <Footer/>
-        </main>)
+        </>)
 }
