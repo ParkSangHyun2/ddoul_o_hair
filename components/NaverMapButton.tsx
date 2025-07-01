@@ -25,7 +25,7 @@ export default function NaverMapButton() {
                 href={finalLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white text-sm font-medium px-4 py-2 rounded-full shadow-md transition-colors"
+                className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white text-[11px] md:text-sm font-medium px-4 py-2 rounded-full shadow-md transition-colors"
             >
                 <FaMapMarkerAlt className="w-4 h-4" />
                 {isMobile ? '네이버 앱으로 위치 보기' : '네이버 지도에서 보기'}
@@ -34,7 +34,7 @@ export default function NaverMapButton() {
                 href="https://m.place.naver.com/hairshop/1191538774/reservation"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white text-sm font-medium px-4 py-2 rounded-full shadow-md transition-colors"
+                className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white text-[11px] md:text-sm font-medium px-4 py-2 rounded-full shadow-md transition-colors"
             >
                 <FaCalendarAlt className="w-4 h-4" />
                 네이버에서 예약하기

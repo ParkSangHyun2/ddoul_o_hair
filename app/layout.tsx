@@ -3,6 +3,7 @@ import {Geist, Geist_Mono} from "next/font/google";
 import './globals.css'
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import MarqueeNotice from "@/components/MarqueeNotice";
 
 const geistSans = Geist({
     variable: "--font-geist-sans", subsets: ["latin"],
@@ -25,8 +26,9 @@ export default function RootLayout({
         <body
             className={`${geistSans.variable} ${geistMono.variable} antialiased select-none`}
         >
-        <main className="min-h-screen flex flex-col items-center text-center px-4 gap-4 pt-[80px]">
+        <main className="min-h-screen left-0 flex flex-col items-center text-center gap-4 pt-[114px]">
             <Header/>
+            <MarqueeNotice/>
             {children}
             <Footer/>
         </main>

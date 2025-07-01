@@ -5,14 +5,14 @@ import { ko } from 'date-fns/locale'
 import 'react-day-picker/dist/style.css'
 
 type Props = {
-    closedDates: string[] // ISO 형식 'YYYY-MM-DD' 배열
+    closedDates: Date[] // ISO 형식 'YYYY-MM-DD' 배열
 }
 
 export default function KoreanSimpleHolidayCalendar({ closedDates }: Props) {
-    const isClosed = (date: Date) => {
-        const iso = date.toISOString().split('T')[0]
-        return closedDates.includes(iso)
-    }
+    // const isClosed = (date: Date) => {
+    //     const iso = date.toISOString().split('T')[0]
+    //     return closedDates.includes(iso)
+    // }
 
     return (
         <div className="max-w-md mx-auto p-6">
@@ -22,10 +22,8 @@ export default function KoreanSimpleHolidayCalendar({ closedDates }: Props) {
                 <DayPicker
                     locale={ko}
                     showOutsideDays
-                    fromYear={2025}
-                    toYear={2030}
                     pagedNavigation
-                    modifiers={{ closed: isClosed }}
+                    modifiers={{ closed: closedDates }}
                     modifiersClassNames={{ closed: 'bg-red-100 text-red-700 font-semibold' }}
                     styles={{
                         caption: { textAlign: 'center', marginBottom: '1rem' },

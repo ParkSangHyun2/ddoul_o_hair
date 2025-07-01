@@ -35,15 +35,15 @@ export default function Contact() {
             onLoad={() => setScriptLoaded(true)}
         />
         <Hero title="오시는길" desc=""/>
-        <AddressInfo/>
-        <NaverMapButton/>
-        <div id="map" style={{width: '400px', height: '400px'}}></div>
-        <div className="flex flex-1"/>
-        <h3>휴무일</h3>
-        <KoreanHolidayCalendar closedDates={[
-            '2025-06-08', // 현충일
-            '2025-09-08', // 추석
-            '2025-12-25', // 크리스마스
-            ]}/>
+        <div className="flex flex-col gap-5 w-full p-5">
+            <AddressInfo/>
+            <NaverMapButton/>
+            <div id="map" style={{width: '94vw', height:'400px', maxHeight: '1000px'}}></div>
+            <div className="flex flex-1"/>
+            <KoreanHolidayCalendar closedDates={[
+                new Date(2025, 6, 3),  // 예: 2025년 7월 3일
+                new Date(2025, 6, 14), // 예: 2025년 7월 14일
+                ]}/>
+        </div>
     </>)
 }

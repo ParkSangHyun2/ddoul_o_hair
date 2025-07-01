@@ -51,7 +51,7 @@ export default function Header() {
 
             {/* 모바일 메뉴 */}
             {menuOpen && (
-                <nav className="md:hidden absolute top-16 left-0 w-full bg-white shadow-md z-10 flex flex-col space-y-2 text-gray-800 text-sm font-semibold px-6 py-4">
+                <nav className="md:hidden absolute top-[110px] left-0 w-full bg-white shadow-md z-10 flex flex-col space-y-2 text-gray-800 text-sm font-semibold px-6 py-4">
                     <Link onClick={() => setMenuOpen(false)} href="/about" className="hover:text-gold transition-colors">브랜드 소개</Link >
                     <Link onClick={() => setMenuOpen(false)} href="/galary" className="hover:text-gold transition-colors">갤러리</Link >
                     <Link onClick={() => setMenuOpen(false)} href="/services" className="hover:text-gold transition-colors">시술 안내</Link >
