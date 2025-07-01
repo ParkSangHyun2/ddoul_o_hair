@@ -38,7 +38,17 @@ export default function Contact() {
         <div className="flex flex-col gap-5 w-full p-5">
             <AddressInfo/>
             <NaverMapButton/>
-            <div id="map" style={{width: '94vw', height:'400px', maxHeight: '1000px'}}></div>
+            <div className="flex flex-col justify-center items-center w-full">
+                <div id="map" className="flex flex-col justify-center" style={{
+                    width: '80vw',
+                    maxWidth: '800px',
+                    height: '50vw',
+                    maxHeight: '600px',
+                    display:'flex',
+                    position: 'relative',
+                    overflow: 'hidden'
+                }}></div>
+            </div>
             <div className="flex flex-1"/>
             <KoreanHolidayCalendar closedDates={[
                 new Date(2025, 6, 3),  // 예: 2025년 7월 3일
