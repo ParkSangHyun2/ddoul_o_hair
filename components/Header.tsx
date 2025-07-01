@@ -12,18 +12,18 @@ export default function Header() {
             <div className="max-w-5xl mx-auto flex justify-between items-center">
                 {/* 로고 */}
                 <Link href="/" className="flex items-center space-x-2">
+                    {/*<Image*/}
+                    {/*    src="/logo-mini.png"  // 배경 제거된 로고를 여기에 넣어줘!*/}
+                    {/*    alt="뜰오헤어 로고"*/}
+                    {/*    width={50}*/}
+                    {/*    height={50}*/}
+                    {/*    priority*/}
+                    {/*/>*/}
                     <Image
-                        src="/logo-mini.png"  // 배경 제거된 로고를 여기에 넣어줘!
+                        src="/logo-full.PNG"  // 배경 제거된 로고를 여기에 넣어줘!
                         alt="뜰오헤어 로고"
-                        width={50}
-                        height={50}
-                        priority
-                    />
-                    <Image
-                        src="/logo-liter.png"  // 배경 제거된 로고를 여기에 넣어줘!
-                        alt="뜰오헤어 로고"
-                        width={70}
-                        height={70}
+                        width={120}
+                        height={120}
                         priority
                     />
                 </Link>
