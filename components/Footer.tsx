@@ -1,12 +1,12 @@
 import InstagramLink from "@/components/InstagramLink";
 
 export default function Footer() {
-    return (
-        <footer className="w-full bg-neutral-100 text-gray-600 text-sm mt-12 border-t">
-            <div className="max-w-6xl mx-auto px-6 py-10 flex flex-col items-center md:flex-row justify-between md:items-center gap-6">
+    return (<footer className="w-full bg-neutral-100 text-gray-600 text-sm mt-12 border-t">
+            <div
+                className="max-w-6xl mx-auto px-6 py-10 flex flex-col items-center md:flex-row justify-between md:items-center gap-6">
                 {/* 브랜드 설명 */}
-                <div className="flex flex-col self-stretch gap-1 md:items-start md:">
-                    <div className="md:flex-0 md:flex-row flex-1 md:w-full justify-between">
+                <div className="flex flex-col self-stretch gap-1 md:items-start">
+                    <div className="md:flex-0 md:flex-row flex-1 md:w-full justify-between md:justify-start">
                         <h3 className="shrink-0 text-lg font-semibold text-gray-800 mb-2">뜰오헤어</h3>
                         <InstagramLink/>
                     </div>
@@ -27,6 +27,5 @@ export default function Footer() {
             <div className="text-center text-xs text-gray-400 py-4 border-t">
                 &copy; {new Date().getFullYear()} 뜰오헤어. All rights reserved.
             </div>
-        </footer>
-    )
+        </footer>)
 }
