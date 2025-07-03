@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-    title: "뜰오헤어 안중점", description: "뜰오헤어 웹사이트",
+    title: "뜰오헤어 안중점", description: "안중에 위치한 뜰오헤어, 컷/염색/펌 전문. 예약 문의 환영."
 };
 
 export default function RootLayout({
@@ -26,6 +26,25 @@ export default function RootLayout({
         <body
             className={`${geistSans.variable} ${geistMono.variable} antialiased select-none`}
         >
+        <head>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "HairSalon",
+                        "name": "뜰오헤어",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "addressLocality": "안중",
+                            "addressCountry": "KR"
+                        },
+                        "url": "https://ddeul-o-hair.vercel.app",
+                        "telephone": "010-0000-1111"
+                    }),
+                }}
+            />
+        </head>
         <main className="min-h-screen left-0 flex flex-col items-center text-center gap-4 pt-[114px]">
             <Header/>
             <MarqueeNotice/>
