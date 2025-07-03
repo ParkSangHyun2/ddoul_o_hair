@@ -6,6 +6,8 @@ import AddressInfo from "@/components/AddressInfo";
 import NaverMapButton from "@/components/NaverMapButton";
 import {useEffect, useState} from "react";
 import KoreanHolidayCalendar from "@/components/KoreanHolidayCalendar";
+import Qr from "@/public/qr/bmc_qr.png";
+import Image from "next/image";
 
 export default function Contact() {
     const [scriptLoaded, setScriptLoaded] = useState(false)
@@ -54,6 +56,14 @@ export default function Contact() {
                 new Date(2025, 6, 3),  // 예: 2025년 7월 3일
                 new Date(2025, 6, 14), // 예: 2025년 7월 14일
                 ]}/>
+
+            <p className="font-bold">웹사이트 문의</p>
+            {/* Buy Me a Coffee 버튼 스크립트 */}
+
+            <div className="flex flex-col w-full justify-center items-center">
+                <Image src={Qr} alt="qr" width={100} height={100}/>
+            </div>
+
         </div>
     </>)
 }

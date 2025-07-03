@@ -12,6 +12,9 @@ export default function Footer() {
                     </div>
                     <p>정성을 담아 고객 한 분 한 분의 아름다움을 책임집니다.</p>
                     <p className="mt-1">운영시간: 오전 10시 ~ 오후 8시</p>
+                    <div className="w-[300px]">
+                        <a href="https://www.buymeacoffee.com/stand.by.me"><img src="https://img.buymeacoffee.com/button-api/?text=웹사이트 제작 문의&emoji=😀&slug=stand.by.me&button_colour=5F7FFF&font_colour=ffffff&font_family=Poppins&outline_colour=000000&coffee_colour=FFDD00" /></a>
+                    </div>
                 </div>
 
                 {/* 연락처 정보 */}
