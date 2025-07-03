@@ -15,6 +15,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
     title: "뜰오헤어 안중점", description: "안중에 위치한 뜰오헤어, 컷/염색/펌 전문. 예약 문의 환영.",
+    icons: {
+        icon: "/favicon.ico",
+        shortcut: "/favicon-32x32.png",
+        apple: "/apple-touch-icon.png",
+    },
 };
 
 export default function RootLayout({
