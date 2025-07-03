@@ -40,6 +40,7 @@ export default function RootLayout({
             }}
         />
         <title>뜰오헤어 안중점</title>
+        <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
     </head>
     <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased select-none`}
