@@ -35,7 +35,7 @@ export default function Carousel() {
             <h2 className="text-xl font-bold mb-4">새로운 소식</h2>
             <div className="flex transition-transform duration-500" style={{ transform: `translateX(-${current * 100}%)` }}>
                 {images.map((src, idx) => (
-                    <Image key={idx} src={src} alt="poster" className="w-full flex-shrink-0 object-cover md:h-fit h-64" />
+                    <Image key={idx} src={src} alt="poster" className="w-full flex-shrink-0 object-cover md:h-fit h-fit" />
                     // <img key={idx} src={src} className="w-full flex-shrink-0 object-cover md:h-fit h-64" />
                 ))}
             </div>
