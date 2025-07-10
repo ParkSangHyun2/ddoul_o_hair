@@ -6,9 +6,6 @@ import Event250710_1 from "@/public/images/event_250710_1.png";
 import Event250710_2 from "@/public/images/event_250710_2.png";
 
 const images = [
-    // '/carousel/carousel1.png',
-    // '/carousel/carousel2.png',
-    // '/carousel/carousel2.png',
     Event250710_1,
     Event250710_2,
     PriceInfoImg,
