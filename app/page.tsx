@@ -1,10 +1,9 @@
 import './globals.css';
-import Hero from '@/components/Hero'
+
 import About from '@/components/About'
 import Carousel from "@/components/Carousel";
 import YoutubeGrid from "@/components/YoutubeGrid";
 import SummerStyle from "@/components/style/SummerStyle";
-import SectionTitle from "@/components/SectionTitle";
 import Image from "next/image";
 import OpenPoster from "@/public/images/first.jpg";
 
