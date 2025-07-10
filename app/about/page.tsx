@@ -24,9 +24,32 @@ export default function AboutPage() {
                 />
                 <div>
                     <h2 className="text-xl font-semibold mb-2">최우민 원장</h2>
-                    <p className="text-gray-600 mb-1">TONY&GUY 출신 디자이너</p>
-                    <p className="text-gray-600">80년 경력의 감성 디렉터</p>
+                    <p className="text-gray-600 mb-1">안중 출신 디자이너</p>
+                    <p className="text-gray-600">12년 경력의 감성 디렉터</p>
                 </div>
+            </section>
+
+            {/* 브랜드 소개 */}
+            <section className="mb-12 bg-gold p-10 rounded-2xl">
+                <p className="text-lg leading-relaxed text-black text-center">
+                    안녕하세요. 뜰오헤어의 원장 최우민입니다.<br />
+                    <span className="font-bold">'뜰오'</span>라 함은 순 우리말<br />
+                    정오 오전 오후 할때 낮'오' (午)<br />
+                    뜬다의 미래형인 '뜰'<br />
+                    <br />
+                    머리는 사람을 밝게 해주는 기본적인 치장이며<br />
+                    빛이나게끔 가꿔나간다의 의미랑<br />
+                    외모 완성의 미래지향성을 둔 의미<br />
+                    <span className="font-bold">'뜰오헤어'</span>로 여러분을 찾아오게 되었습니다😀<br />
+                    <br />
+                    프라이빗한 빈티지스러운 공간과 안중에서는 지금껏 없었던 <span className="underline">유아 자동차의자</span> 서비스까지 제공해드리고 있습니다🚗<br />
+                    <br />
+                    확실한 비포 에프터의 끝판을 보여드리겠습니다👍<br />
+                    <br />
+                    많은 관심과 응원 부탁드립니다🙏<br />
+                    <br />
+                    <span className="font-bold text-3xl">오픈 일자 : 2025년 7월 10일</span>
+                </p>
             </section>
 
             {/* 매장 사진 */}
