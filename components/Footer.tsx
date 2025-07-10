@@ -21,7 +21,7 @@ export default function Footer() {
                 <div className="flex flex-col gap-1 h-full items-center">
                     <h4 className="font-medium text-gray-700 mb-2">Contact</h4>
                     <p>원장 최우민</p>
-                    <p>Tel: <a href="tel:01011110000" className="underline">010-1111-0000</a></p>
+                    <p>Tel: <a href="tel:01030236114" className="underline">010-3023-6114</a></p>
                     <p>Email: <a href="mailto:info@ddolhair.com" className="underline">info@ddolhair.com</a></p>
                 </div>
             </div>

@@ -35,7 +35,7 @@ export default function RootLayout({
                 __html: JSON.stringify({
                     "@context": "https://schema.org", "@type": "HairSalon", "name": "뜰오헤어", "address": {
                         "@type": "PostalAddress", "addressLocality": "안중", "addressCountry": "KR"
-                    }, "url": "https://ddeul-o-hair.vercel.app", "telephone": "010-0000-1111"
+                    }, "url": "https://ddeul-o-hair.vercel.app", "telephone": "010-3023-6114"
                 }),
             }}
         />
