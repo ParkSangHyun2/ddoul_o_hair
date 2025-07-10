@@ -9,7 +9,7 @@ import Image from "next/image";
 import OpenPoster from "@/public/images/first.jpg";
 
 export default function Home() {
-    return (<main className="min-h-screen flex flex-col items-center text-center gap-2 pt-[30px]">
+    return (<main className="min-h-screen flex flex-col items-center text-center gap-2">
         <div className="flex flex-col md:flex-row w-full gap-10 md:justify-between px-[10%] py-[2%] bg-[#c8c2ba]">
             <div className="text-left">
                 <p className="text-6xl font-bold">GRAND OPEN</p>
