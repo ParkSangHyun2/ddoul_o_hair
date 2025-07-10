@@ -29,7 +29,6 @@ export default function Carousel() {
 
     return (
         <div className="relative w-full max-w-xl mx-auto overflow-hidden rounded-2xl shadow-lg">
-            <h2 className="text-xl font-bold mb-4">새로운 소식</h2>
             <div className="flex transition-transform duration-500" style={{ transform: `translateX(-${current * 100}%)` }}>
                 {images.map((src, idx) => (
                     <Image key={idx} src={src} alt="poster" className="w-full flex-shrink-0 object-cover md:h-fit h-fit" />
