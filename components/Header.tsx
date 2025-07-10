@@ -12,18 +12,18 @@ export default function Header() {
             <div className="max-w-5xl mx-auto flex justify-between items-center">
                 {/* 로고 */}
                 <Link href="/" className="flex items-center space-x-2">
+                    {/*<Image*/}
+                    {/*    src="/logo-mini.png"  // 배경 제거된 로고를 여기에 넣어줘!*/}
+                    {/*    alt="뜰오헤어 로고"*/}
+                    {/*    width={50}*/}
+                    {/*    height={50}*/}
+                    {/*    priority*/}
+                    {/*/>*/}
                     <Image
-                        src="/logo-mini.png"  // 배경 제거된 로고를 여기에 넣어줘!
+                        src="/logo-full.PNG"  // 배경 제거된 로고를 여기에 넣어줘!
                         alt="뜰오헤어 로고"
-                        width={50}
-                        height={50}
-                        priority
-                    />
-                    <Image
-                        src="/logo-liter.png"  // 배경 제거된 로고를 여기에 넣어줘!
-                        alt="뜰오헤어 로고"
-                        width={70}
-                        height={70}
+                        width={120}
+                        height={120}
                         priority
                     />
                 </Link>
@@ -42,8 +42,9 @@ export default function Header() {
 
                 {/* 데스크탑 메뉴 */}
                 <nav className="hidden md:flex space-x-8 text-gray-800 text-sm font-semibold">
+                    <Link  href="/" className="hover:text-gold transition-colors">홈</Link >
                     <Link  href="/about" className="hover:text-gold transition-colors">브랜드 소개</Link >
-                    <Link  href="/galary" className="hover:text-gold transition-colors">갤러리</Link >
+                    <Link  href="/gallery" className="hover:text-gold transition-colors">갤러리</Link >
                     <Link  href="/services" className="hover:text-gold transition-colors">시술 안내</Link >
                     <Link  href="/contact" className="hover:text-gold transition-colors">오시는 길 / 문의</Link >
                 </nav>
@@ -51,11 +52,12 @@ export default function Header() {
 
             {/* 모바일 메뉴 */}
             {menuOpen && (
-                <nav className="md:hidden absolute top-20 left-0 w-full bg-white shadow-md z-10 flex flex-col space-y-2 text-gray-800 text-sm font-semibold px-6 py-4">
-                    <Link  href="/about" className="hover:text-gold transition-colors">브랜드 소개</Link >
-                    <Link  href="/galary" className="hover:text-gold transition-colors">갤러리</Link >
-                    <Link  href="/services" className="hover:text-gold transition-colors">시술 안내</Link >
-                    <Link  href="/contact" className="hover:text-gold transition-colors">오시는 길 / 문의</Link >
+                <nav className="md:hidden absolute top-[110px] left-0 w-full bg-white shadow-md z-10 flex flex-col space-y-2 text-gray-800 text-sm font-semibold px-6 py-4">
+                    <Link onClick={() => setMenuOpen(false)} href="/" className="hover:text-gold transition-colors">홈</Link >
+                    <Link onClick={() => setMenuOpen(false)} href="/about" className="hover:text-gold transition-colors">브랜드 소개</Link >
+                    <Link onClick={() => setMenuOpen(false)} href="/gallery" className="hover:text-gold transition-colors">갤러리</Link >
+                    <Link onClick={() => setMenuOpen(false)} href="/services" className="hover:text-gold transition-colors">시술 안내</Link >
+                    <Link onClick={() => setMenuOpen(false)} href="/contact" className="hover:text-gold transition-colors">오시는 길 / 문의</Link >
                 </nav>
             )}
         </header>

@@ -8,8 +8,7 @@ export default function YoutubeGrid() {
     ]
 
     return (
-        <section className="max-w-6xl mx-auto px-4 py-12">
-            <h2 className="text-2xl font-semibold text-center mb-8 text-gray-700">YOUTUBE</h2>
+        <section className="max-w-6xl mx-auto px-4 pb-12">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {videos.map((id) => (
                     <div key={id} className="w-full aspect-video">

@@ -1,9 +1,15 @@
 'use client'
 import {useEffect, useState} from 'react'
+import Image from "next/image";
+import PriceInfoImg from "@/public/images/price_info.png";
+import Event250710_1 from "@/public/images/event_250710_1.png";
+import Event250710_2 from "@/public/images/event_250710_2.png";
 
 const images = [
-    '/carousel/carousel1.png',
-    '/carousel/carousel2.png',
+    Event250710_1,
+    Event250710_2,
+    PriceInfoImg,
+
 ]
 
 export default function Carousel() {
@@ -25,7 +31,8 @@ export default function Carousel() {
         <div className="relative w-full max-w-xl mx-auto overflow-hidden rounded-2xl shadow-lg">
             <div className="flex transition-transform duration-500" style={{ transform: `translateX(-${current * 100}%)` }}>
                 {images.map((src, idx) => (
-                    <img key={idx} src={src} className="w-full flex-shrink-0 object-cover md:h-80 h-64" />
+                    <Image key={idx} src={src} alt="poster" className="w-full flex-shrink-0 object-cover md:h-fit h-fit" />
+                    // <img key={idx} src={src} className="w-full flex-shrink-0 object-cover md:h-fit h-64" />
                 ))}
             </div>
 
