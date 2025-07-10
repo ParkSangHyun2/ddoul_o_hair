@@ -2,7 +2,7 @@
 
 import Hero from "@/components/Hero";
 import Image from "next/image";
-import PriceInfoImg from "@/public/images/price_info.jpg";
+import PriceInfoImg from "@/public/images/price_info_origin.jpg";
 import {useState} from "react";
 
 export default function ServicesPage() {
@@ -28,7 +28,7 @@ export default function ServicesPage() {
                     style={{
                         objectFit: 'contain',
                     }}
-                    className="md:w-1/2 cursor-pointer"
+                    className="md:w-1/3 cursor-pointer"
                     priority
                     onClick={() => setIsFull(prev => !prev)}
                 />
