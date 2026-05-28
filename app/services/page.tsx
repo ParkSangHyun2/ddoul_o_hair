@@ -1,6 +1,5 @@
 'use client'
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import contentData from '@/data/content.json';
 
 export default function ServicesPage() {

@@ -40,7 +40,8 @@ export default function Home() {
     const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
     // Letter animation variants
-    const letterVariants = {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const letterVariants: any = {
         initial: { opacity: 0, y: 50, rotateX: -90 },
         animate: (i: number) => ({
             opacity: 1,

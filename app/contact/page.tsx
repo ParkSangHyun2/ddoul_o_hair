@@ -13,6 +13,7 @@ export default function Contact() {
     const { business, hero } = contentData
 
     useEffect(() => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const kakao = (window as any).kakao
         if (kakao?.maps) {
             kakao.maps.load(() => {

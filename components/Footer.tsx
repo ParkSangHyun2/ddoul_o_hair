@@ -1,5 +1,4 @@
 'use client'
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 import InstagramLink from "@/components/InstagramLink";
 import contentData from '@/data/content.json';
