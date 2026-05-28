@@ -1,0 +1,118 @@
+{
+  "notice": "뜰오헤어 안중점 그랜드 오픈! 정성을 다하는 프리미엄 서비스로 모십니다.",
+  "hero": {
+    "title": "뜰오헤어",
+    "subTitle": "Premium Hair Salon",
+    "slogan": "정성을 다해 고객 한 분 한 분의 가장 빛나는 순간을 완성합니다.",
+    "hashtags": ["#안중", "#커트장인", "#인생머리"],
+    "reservationUrl": "https://map.naver.com/p/entry/place/2042566657?c=15.00,0,0,0,dh&placePath=/stylist?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202605282148&locale=ko&svcName=map_pcv5&fromPanelNum=1&additionalHeight=76&timestamp=202605282148&locale=ko&svcName=map_pcv5"
+  },
+  "business": {
+    "hours": "OPEN AM 10:00 - PM 08:00",
+    "phone": "010-3023-6114",
+    "email": "info@ddolhair.com",
+    "address": "경기 평택시 안중읍 안중로 8 1층"
+  },
+  "pricing": [
+    { "category": "CUT", "items": [
+      { "name": "앞머리컷", "price": "3,000" },
+      { "name": "주니어컷", "price": "20,000" },
+      { "name": "남자컷", "price": "20,000" },
+      { "name": "여자컷", "price": "22,000" },
+      { "name": "스파스켈링 컷", "price": "50,000" }
+    ]},
+    { "category": "DRY", "items": [
+      { "name": "남성드라이", "price": "15,000" },
+      { "name": "여성드라이", "price": "20,000" }
+    ]},
+    { "category": "COLOR", "items": [
+      { "name": "프리미엄 리터치", "price": "40,000" },
+      { "name": "베이직 염색", "price": "70,000" },
+      { "name": "프리미엄 탈색", "price": "80,000" }
+    ]},
+    { "category": "CLINIC", "items": [
+      { "name": "세미 클리닉", "price": "30,000~" },
+      { "name": "하오니코 클리닉", "price": "50,000~" },
+      { "name": "두피 클리닉", "price": "60,000~" }
+    ]},
+    { "category": "PARTIAL PERM", "items": [
+      { "name": "앞머리펌", "price": "30,000~" },
+      { "name": "앞머리열펌&매직", "price": "35,000~" },
+      { "name": "부분매직", "price": "50,000~" },
+      { "name": "라인다운", "price": "20,000~" }
+    ]},
+    { "category": "PERM", "items": [
+      { "name": "베이직", "price": "70,000~" },
+      { "name": "천연", "price": "80,000~" },
+      { "name": "디자인펌", "price": "100,000~" }
+    ]},
+    { "category": "HEAT PERM", "items": [
+      { "name": "프리미엄 셋팅", "price": "110,000~" },
+      { "name": "프리미엄 볼륨매직", "price": "130,000~" },
+      { "name": "프리미엄 매직셋팅", "price": "160,000~" },
+      { "name": "프리미엄 아이롱펌", "price": "130,000~" }
+    ]}
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "image": "/images/reviews/review2.jpeg",
+      "text": "이번에 갈색으로 염색했는데 색이 진짜 너무 예쁘게 잘 나왔어요 🤎 과하지 않으면서 자연스럽고 얼굴도 더 환해 보여서 너무 만족해요! 원장님이 상담을 정말 꼼꼼하게 해주시고 믿고 맡길 수 있었어요.",
+      "author": "네이버 방문자 @신뚱빈이"
+    },
+    {
+      "id": 2,
+      "image": "/images/reviews/review1.jpeg",
+      "text": "염색 머리에서 흑발로 덮고 싶어서 방문했는데 너무 깔끔하게 잘 해주셨어요:) 커트도 얼굴형에 잘 어울리게끔 해주셨어용 다음에 또 방문할게요!!",
+      "author": "네이버 방문자 @유다앵"
+    },
+    {
+      "id": 3,
+      "image": "/images/shop/baby_chair.webp",
+      "text": "일단 우민쌤 너무 친절하시고 어울리는 스타일 잘 캐치해주십니다 !! 3년째 쌤한테 머리 하고 있는데 만족 안 한 적이 없어요! 항상 만족스러운 커팅과 시술해주셔서 감사합니다 !!",
+      "author": "네이버 방문자 @seu****"
+    },
+    {
+      "id": 4,
+      "image": "/styles/style4.png",
+      "text": "아이들 새학기 맞이로 염색하러 방문했는데 염색 맛집이었네요!!! 머리결 손상 하나없이 염색뚝딱 해주셨어요!! 아이들도 너무 만족하네요🤭🤭 또 방문하겠습니다!!",
+      "author": "네이버 방문자 @허뽀앵"
+    },
+    {
+      "id": 5,
+      "image": "/images/shop/right_side.webp",
+      "text": "히피펌을 했는데 평소에 해보지 않은 스타일이라 걱정반 기대반이었는데 정말 예쁘게 잘 해주셨습니다👍🏼🤍 마스코트 초롱이도 있어 아주 즐거운 경험이었어요!",
+      "author": "네이버 방문자 @KIm92"
+    },
+    {
+      "id": 6,
+      "image": "/images/shop/counter.webp",
+      "text": "급하게 주변 미용실을 찾다 방문한 곳인데 원하는 머리 설명을 잘 못해도 원장님께서 알아서 깔끔하고 원하는 스타일로 너무 잘 잘라주셔서 너무 좋아요ㅎㅎ 샴푸도 너무 시원했습니다!",
+      "author": "네이버 방문자 @12343777"
+    },
+    {
+      "id": 7,
+      "image": "/styles/style2.png",
+      "text": "커트하러 갔는데 원하는 스타일로 꼼꼼하게 해주셔서 완전 만족합니다🥰 초롱이도 온순하니 너무 귀여웠어요! 대기할 때 음료주셔서 덕분에 맛있게 기다릴 수 있었어요 :)",
+      "author": "네이버 방문자 @dai****"
+    },
+    {
+      "id": 8,
+      "image": "/images/shop/baby_chair.webp",
+      "text": "돌 남자아이 미용실이 처음이라 무서웠는데 너무 친절하게 잘 해주시고 아이가 울 때 시선도 잘 맟춰주셔서 빠르게 머리 손질 할 수 있었던 거 같아요 ! 자동차 의자가 있어서 아이가 좋아했네요 ㅎ",
+      "author": "네이버 방문자 @pke****"
+    },
+    {
+      "id": 9,
+      "image": "/images/shop/right_side.webp",
+      "text": "제 커트 하러 첫 방문하고 커트를 잘 하셔서 다음날 신랑 아들 데리고 또 방문 했습니다. 엄청 섬세하게 커트하시고 설명도 잘 해 주십니다. 초롱이라는 귀엽고 특별한 친구도 만니볼 수 있어요:)",
+      "author": "네이버 방문자 @Sunny231"
+    },
+    {
+      "id": 10,
+      "image": "/styles/style1.png",
+      "text": "원장님 완전 금손이시네요! 테슬컷 너무 하고 싶었는데 딱 제 맘에 들게 해주셨어요 😆 또 갈게요 감사합니당!!!!",
+      "author": "네이버 방문자 @123456789326"
+    }
+  ]
+}

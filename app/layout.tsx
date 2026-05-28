@@ -1,20 +1,26 @@
 import type {Metadata} from "next";
-import {Geist, Geist_Mono} from "next/font/google";
+import {Cormorant_Garamond, Noto_Sans_KR} from "next/font/google";
 import './globals.css'
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MarqueeNotice from "@/components/MarqueeNotice";
+import DotCharacters from "@/components/DotCharacters";
 
-const geistSans = Geist({
-    variable: "--font-geist-sans", subsets: ["latin"],
+const cormorant = Cormorant_Garamond({
+    variable: "--font-serif",
+    subsets: ["latin"],
+    weight: ["300", "400", "500", "600", "700"],
 });
 
-const geistMono = Geist_Mono({
-    variable: "--font-geist-mono", subsets: ["latin"],
+const notoSansKR = Noto_Sans_KR({
+    variable: "--font-sans",
+    subsets: ["latin"],
+    weight: ["300", "400", "500", "700"],
 });
 
 export const metadata: Metadata = {
-    title: "뜰오헤어 안중점", description: "안중에 위치한 뜰오헤어, 컷/염색/펌 전문. 예약 문의 환영.",
+    title: "뜰오헤어 안중점", 
+    description: "안중에 위치한 프리미엄 살롱 뜰오헤어. 컷, 염색, 펌 전문 1:1 맞춤 상담.",
     icons: {
         icon: "/favicon.ico",
         shortcut: "/favicon-32x32.png",
@@ -27,31 +33,38 @@ export default function RootLayout({
                                    }: Readonly<{
     children: React.ReactNode;
 }>) {
-    return (<html lang="en">
+    return (<html lang="ko">
     <head>
         <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
                 __html: JSON.stringify({
-                    "@context": "https://schema.org", "@type": "HairSalon", "name": "뜰오헤어", "address": {
-                        "@type": "PostalAddress", "addressLocality": "안중", "addressCountry": "KR"
-                    }, "url": "https://ddeul-o-hair.vercel.app", "telephone": "010-3023-6114"
+                    "@context": "https://schema.org",
+                    "@type": "HairSalon",
+                    "name": "뜰오헤어",
+                    "url": "https://ddeul-o-hair.vercel.app",
+                    "telephone": "010-3023-6114",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressLocality": "안중",
+                        "addressCountry": "KR"
+                    }
                 }),
             }}
         />
-        <title>뜰오헤어 안중점</title>
         <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
     </head>
     <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased select-none`}
+        className={`${cormorant.variable} ${notoSansKR.variable} font-sans antialiased select-none`}
     >
+    <DotCharacters />
+    <Header/>
+    <MarqueeNotice/>
 
-    <main className="min-h-screen left-0 flex flex-col items-center text-center gap-4 pt-[114px]">
-        <Header/>
-        <MarqueeNotice/>
+    <main>
         {children}
-        <Footer/>
     </main>
+    <Footer/>
     </body>
-    </html>);
+</html>);
 }

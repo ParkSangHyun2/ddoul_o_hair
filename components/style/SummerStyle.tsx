@@ -1,66 +1,64 @@
+'use client'
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
-const summerStyles = [
-    { id: 1, src: '/styles/style1.png', alt: '단발 C컬' },
-    { id: 2, src: '/styles/style2.png', alt: '여신 웨이브' },
-    { id: 3, src: '/styles/style3.png', alt: '러블리 핑크보브' },
-    { id: 4, src: '/styles/style4.png', alt: '시크 웨이브컷' },
+const shopImages = [
+    { id: 1, src: '/images/shop/enterance.webp', alt: 'Main Entrance', gridClass: 'md:col-span-3 md:row-span-2' }, // 입구는 넓게
+    { id: 2, src: '/images/shop/counter.webp', alt: 'Reception', gridClass: 'md:col-span-1 md:row-span-1' },
+    { id: 3, src: '/images/shop/wash_room.webp', alt: 'Shampoo Room', gridClass: 'md:col-span-1 md:row-span-1' },
+    { id: 4, src: '/images/shop/right_side.webp', alt: 'Styling Area', gridClass: 'md:col-span-2 md:row-span-1' }, // 내부 전경도 넓게
+    { id: 5, src: '/images/shop/baby_chair.webp', alt: 'Kids Station', gridClass: 'md:col-span-1 md:row-span-1' },
+    { id: 6, src: '/images/shop/door_open.webp', alt: 'Open Atmosphere', gridClass: 'md:col-span-1 md:row-span-1' },
 ];
 
 export default function SummerStyle() {
     return (
-        <section className="flex flex-col md:flex-row gap-10 px-10 py-8">
-            <div className="hidden md:block">
-                <p className="text-left">2025 hair trend</p>
-                <p className="text-left font-bold text-7xl">SUMMER STYLE</p>
+        <section className="px-6 py-12">
+            <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-end justify-between gap-4 mb-20 border-b border-stone-200 pb-12">
+                <div className="space-y-4 text-left">
+                    <span className="text-gold font-bold tracking-[0.4em] text-xs uppercase">The Sanctuary</span>
+                    <h2 className="text-6xl md:text-8xl font-serif font-bold text-stone-800 tracking-tighter leading-none">
+                        OUR<br/>SPACE
+                    </h2>
+                </div>
+                <p className="text-stone-400 font-serif italic text-xl max-w-xs text-right">
+                    &quot;당신의 아름다움이 머무는 곳, 뜰오헤어의 감각적인 공간입니다.&quot;
+                </p>
             </div>
-            <div className="block md:hidden">
-                <p className="text-left">2025 hair trend</p>
-                <p className="text-left font-bold text-7xl">SUMMER STYLE</p>
-            </div>
-            <div>
-                {/* 데스크탑 grid */}
-                <div className="hidden md:grid grid-cols-4 gap-4 max-w-6xl mx-auto">
-                    {summerStyles.map((style) => (
-                        <div
-                            key={style.id}
-                            className="group relative overflow-hidden rounded-2xl shadow-lg transform transition-transform duration-300 hover:scale-105"
-                        >
+
+            {/* Optimized Grid for Landscape Shop Photos */}
+            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8 auto-rows-[250px]">
+                {shopImages.map((image, index) => (
+                    <motion.div
+                        key={image.id}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: index * 0.1 }}
+                        viewport={{ once: true }}
+                        className={`group relative overflow-hidden bg-stone-100 shadow-xl ${image.gridClass}`}
+                    >
+                        <div className="relative w-full h-full">
                             <Image
-                                src={style.src}
-                                alt={style.alt}
-                                width={500}
-                                height={500}
-                                className="w-full h-auto object-cover"
+                                fill
+                                src={image.src}
+                                alt={image.alt}
+                                className="object-cover object-center transition-transform duration-[3000ms] group-hover:scale-110"
+                                sizes="(max-width: 768px) 100vw, 50vw"
                             />
-                            {/* 툴팁 */}
-                            <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-white text-sm p-2 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                {style.alt}
+                            {/* Sophisticated Overlay */}
+                            <div className="absolute inset-0 bg-stone-900/10 group-hover:bg-stone-900/40 transition-all duration-700 flex flex-col items-center justify-end p-6">
+                                <div className="w-full text-left space-y-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                    <span className="text-white/60 text-[8px] tracking-[0.3em] uppercase font-bold">Interior View</span>
+                                    <p className="text-white font-serif text-xl font-medium tracking-tight leading-none">{image.alt}</p>
+                                    <div className="w-0 h-[1px] bg-gold group-hover:w-8 transition-all duration-700 delay-200"></div>
+                                </div>
                             </div>
                         </div>
-                    ))}
-                </div>
-
-                {/* 모바일 슬라이더 */}
-                <div className="md:hidden overflow-x-auto flex gap-4 px-1 snap-x snap-mandatory scroll-smooth">
-                    {summerStyles.map((style) => (
-                        <div
-                            key={style.id}
-                            className="min-w-[85%] flex-shrink-0 snap-center rounded-2xl shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105"
-                        >
-                            <Image
-                                src={style.src}
-                                alt={style.alt}
-                                width={500}
-                                height={500}
-                                className="w-full h-auto object-cover"
-                            />
-                        </div>
-                    ))}
-                </div>
+                    </motion.div>
+                ))}
             </div>
 
-
+            <div className="h-24 md:h-48"></div>
         </section>
     );
 }

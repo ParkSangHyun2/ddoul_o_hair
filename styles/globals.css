@@ -2,7 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-gold: #D4AF37;
+  --color-beige: #F5F5DC;
+  --color-ivory: #FAF9F6;
+  --color-charcoal: #2C2C2C;
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-sans: 'Noto Sans KR', sans-serif;
+}
+
 body {
-  font-family: 'Noto Sans KR', sans-serif;
-  background-color: white;
+  font-family: var(--font-sans);
+  background-color: var(--color-ivory);
+  color: var(--color-charcoal);
+  @apply antialiased overflow-x-hidden;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3%3Cfilter id='noiseFilter'%3%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+h1, h2, h3, h4, .font-serif {
+  font-family: var(--font-serif);
+  @apply tracking-tight;
 }
