@@ -6,9 +6,25 @@ html {
 
 body {
   font-family: 'Noto Sans KR', sans-serif;
-  background-color: white;
+  @apply bg-stone-50 text-stone-800 transition-colors duration-700;
   overflow-x: hidden;
 }
+
+/* 다크모드 전역 스타일 */
+.dark body {
+  @apply bg-stone-950 text-stone-100;
+}
+
+.dark .bg-stone-50 { @apply bg-stone-950; }
+.dark .bg-white { @apply bg-stone-900 border-stone-800; }
+.dark .text-stone-800 { @apply text-stone-100; }
+.dark .text-stone-700 { @apply text-stone-200; }
+.dark .text-stone-600 { @apply text-stone-300; }
+.dark .text-stone-500 { @apply text-stone-400; }
+.dark .bg-stone-100 { @apply bg-stone-900; }
+.dark .bg-stone-200 { @apply bg-stone-800; }
+.dark .border-stone-100 { @apply border-stone-800; }
+.dark .border-stone-200 { @apply border-stone-700; }
 
 @theme {
   --color-gold: #bfa45a

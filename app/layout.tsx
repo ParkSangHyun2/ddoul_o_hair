@@ -33,8 +33,34 @@ export default function RootLayout({
                                    }: Readonly<{
     children: React.ReactNode;
 }>) {
-    return (<html lang="ko">
+    return (<html lang="ko" suppressHydrationWarning>
     <head>
+        <script
+            dangerouslySetInnerHTML={{
+                __html: `
+                (function() {
+                    function updateTheme() {
+                        const now = new Date();
+                        const kstOffset = 9 * 60; // KST는 UTC+9
+                        const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+                        const kstDate = new Date(utc + (kstOffset * 60000));
+                        const hours = kstDate.getHours();
+                        
+                        // 오전 6시 ~ 오후 6시(18시)는 라이트 모드, 그 외는 다크 모드
+                        const isDay = hours >= 6 && hours < 18;
+                        if (isDay) {
+                            document.documentElement.classList.remove('dark');
+                        } else {
+                            document.documentElement.classList.add('dark');
+                        }
+                    }
+                    updateTheme();
+                    // 주기적으로 체크 (1분마다)
+                    setInterval(updateTheme, 60000);
+                })()
+                `,
+            }}
+        />
         <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{

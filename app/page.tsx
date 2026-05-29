@@ -56,25 +56,25 @@ export default function Home() {
     };
 
     return (
-        <div className="flex flex-col items-center text-center bg-stone-50 overflow-hidden pt-[114px]" onMouseMove={handleMouseMove}>
+        <div className="flex flex-col items-center text-center bg-stone-50 dark:bg-stone-950 transition-colors duration-700 overflow-hidden pt-[114px]" onMouseMove={handleMouseMove}>
             {/* 1. Typography Centric Hero Section */}
-            <section ref={containerRef} className="relative w-full h-[calc(100vh-114px)] flex flex-col items-center justify-center overflow-hidden bg-stone-100">
+            <section ref={containerRef} className="relative w-full h-[calc(100vh-114px)] flex flex-col items-center justify-center overflow-hidden bg-stone-100 dark:bg-stone-900 transition-colors">
                 
                 {/* Background Interactive Layer */}
                 <div className="absolute inset-0 z-0 pointer-events-none">
                     <motion.div 
                         animate={{ scale: [1, 1.2, 1], x: [0, 50, 0], y: [0, -30, 0] }}
                         transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                        className="absolute -top-[10%] -left-[10%] w-[50%] h-[50%] bg-gold/10 blur-[120px] rounded-full"
+                        className="absolute -top-[10%] -left-[10%] w-[50%] h-[50%] bg-gold/10 dark:bg-gold/5 blur-[120px] rounded-full"
                     />
                     <motion.div 
                         animate={{ scale: [1.2, 1, 1.2], x: [0, -50, 0], y: [0, 30, 0] }}
                         transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                        className="absolute -bottom-[10%] -right-[10%] w-[60%] h-[60%] bg-stone-300/30 blur-[150px] rounded-full"
+                        className="absolute -bottom-[10%] -right-[10%] w-[60%] h-[60%] bg-stone-300/30 dark:bg-stone-700/10 blur-[150px] rounded-full"
                     />
 
                     <motion.div style={{ y: bgY, rotateX, rotateY, perspective: 1000 }} className="absolute inset-0 flex items-center justify-center">
-                        <h1 className="text-[28vw] font-serif font-bold text-stone-200/50 whitespace-nowrap select-none tracking-tighter mix-blend-multiply">
+                        <h1 className="text-[28vw] font-serif font-bold text-stone-200/50 dark:text-stone-800/30 whitespace-nowrap select-none tracking-tighter mix-blend-multiply dark:mix-blend-overlay transition-colors">
                             DDEUL-O
                         </h1>
                     </motion.div>
@@ -133,10 +133,10 @@ export default function Home() {
                                     initial="initial"
                                     animate="animate"
                                     whileHover={{ scale: 1.1, color: "#D4AF37", transition: { duration: 0.2 } }}
-                                    className="text-7xl md:text-[13vw] font-serif font-bold text-stone-800 leading-none tracking-tighter inline-block cursor-default"
+                                    className="text-7xl md:text-[13vw] font-serif font-bold text-stone-800 dark:text-stone-100 leading-none tracking-tighter inline-block cursor-default transition-colors"
                                 >
                                     {char}
-                                </motion.span>
+                                 </motion.span>
                             ))}
                         </div>
                     </div>
@@ -150,12 +150,12 @@ export default function Home() {
                         ></motion.div>
 
                         <div className="space-y-8">
-                            <p className="text-2xl md:text-5xl font-serif text-stone-700 leading-tight italic max-w-4xl mx-auto font-light">
+                            <p className="text-2xl md:text-5xl font-serif text-stone-700 dark:text-stone-300 leading-tight italic max-w-4xl mx-auto font-light transition-colors">
                                 &quot;{hero.slogan.replace('<br/>', ' ')}&quot;
                             </p>
-                            <div className="flex justify-center gap-8 text-stone-400 text-[10px] uppercase tracking-[0.4em] font-bold">
+                            <div className="flex justify-center gap-8 text-stone-400 dark:text-stone-500 text-[10px] uppercase tracking-[0.4em] font-bold">
                                 {hero.hashtags.map((tag: string, i: number) => (
-                                    <span key={i} className="border-b border-stone-200 pb-3">{tag}</span>
+                                    <span key={i} className="border-b border-stone-200 dark:border-stone-800 pb-3 transition-colors">{tag}</span>
                                 ))}
                             </div>
                         </div>
@@ -163,7 +163,7 @@ export default function Home() {
                         <div className="pt-6">
                             <a 
                                 href={hero.reservationUrl} 
-                                className="group relative inline-flex items-center justify-center px-20 py-6 bg-stone-900 text-white overflow-hidden transition-all duration-700 shadow-2xl"
+                                className="group relative inline-flex items-center justify-center px-20 py-6 bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 overflow-hidden transition-all duration-700 shadow-2xl"
                             >
                                 <span className="relative z-10 text-[10px] tracking-[0.6em] uppercase font-black">Book Your Signature</span>
                                 <div className="absolute inset-0 -translate-x-full group-hover:translate-x-0 bg-gold transition-transform duration-700 ease-[0.16, 1, 0.3, 1]"></div>

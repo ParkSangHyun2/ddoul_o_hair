@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class', // 클래스 기반 다크 모드 활성화
   content: [
     './app/**/*.{js,ts,jsx,tsx}',         // App Router 쓰는 경우 필수
     './components/**/*.{js,ts,jsx,tsx}',  // 컴포넌트 경로
