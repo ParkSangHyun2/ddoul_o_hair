@@ -19,8 +19,35 @@ const notoSansKR = Noto_Sans_KR({
 });
 
 export const metadata: Metadata = {
-    title: "뜰오헤어 안중점", 
-    description: "안중에 위치한 프리미엄 살롱 뜰오헤어. 컷, 염색, 펌 전문 1:1 맞춤 상담.",
+    title: {
+        default: "뜰오헤어 안중점 | 프리미엄 감성 헤어살롱",
+        template: "%s | 뜰오헤어 안중점"
+    },
+    description: "안중 평택에 위치한 프리미엄 살롱 뜰오헤어. 12년 경력 원장님의 1:1 맞춤 상담으로 당신만의 가장 빛나는 스타일을 완성해 드립니다. 컷, 염색, 펌 전문.",
+    keywords: ["안중 미용실", "평택 미용실", "송담 미용실", "안중 레이어드컷", "안중 염색", "안중 펌", "뜰오헤어"],
+    authors: [{ name: "최우민" }],
+    openGraph: {
+        type: "website",
+        locale: "ko_KR",
+        url: "https://ddeul-o-hair.vercel.app",
+        title: "뜰오헤어 안중점 | 프리미엄 감성 헤어살롱",
+        description: "안중 평택에서 가장 빛나는 순간을 완성하는 프리미엄 미용실 뜰오헤어입니다.",
+        siteName: "뜰오헤어",
+        images: [
+            {
+                url: "/logo-full.PNG",
+                width: 1200,
+                height: 630,
+                alt: "뜰오헤어 로고",
+            },
+        ],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "뜰오헤어 안중점",
+        description: "안중 평택 프리미엄 헤어살롱",
+        images: ["/logo-full.PNG"],
+    },
     icons: {
         icon: "/favicon.ico",
         shortcut: "/favicon-32x32.png",

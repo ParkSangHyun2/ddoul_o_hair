@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export default function About() {
   return (
-    <section className="relative max-w-7xl mx-auto py-24 px-6 overflow-hidden">
+    <section className="relative max-w-7xl mx-auto py-24 px-6 overflow-hidden transition-colors duration-700">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-16 items-center">
         {/* Story Text */}
         <motion.div 
@@ -16,15 +16,15 @@ export default function About() {
         >
           <div className="space-y-4">
             <span className="text-gold font-bold tracking-[0.4em] text-xs uppercase">The Visionary</span>
-            <h2 className="text-5xl md:text-7xl font-serif font-bold text-stone-800 leading-tight">
+            <h2 className="text-5xl md:text-7xl font-serif font-bold text-stone-800 dark:text-stone-100 leading-tight transition-colors">
               Crafting<br/>Individual<br/>Beauty
             </h2>
           </div>
           
           <div className="w-16 h-[1px] bg-gold"></div>
           
-          <div className="space-y-6 text-stone-600 font-light leading-relaxed text-lg">
-            <p className="first-letter:text-5xl first-letter:font-serif first-letter:float-left first-letter:mr-3 first-letter:text-stone-800">
+          <div className="space-y-6 text-stone-600 dark:text-stone-300 font-light leading-relaxed text-lg transition-colors">
+            <p className="first-letter:text-5xl first-letter:font-serif first-letter:float-left first-letter:mr-3 first-letter:text-stone-800 dark:first-letter:text-stone-100">
               최신 트렌드 기술과 세심한 상담, 프라이빗한 공간에서 당신만의 스타일을 완성해드립니다. 뜰오헤어는 단순히 머리를 만지는 곳이 아닌, 고객님의 내면의 아름다움까지 발견하는 여정을 함께합니다.
             </p>
             <p>
@@ -33,7 +33,7 @@ export default function About() {
           </div>
 
           <div className="pt-8">
-             <p className="font-serif text-2xl text-stone-800 italic border-l-4 border-gold pl-6 py-2">
+             <p className="font-serif text-2xl text-stone-800 dark:text-stone-100 italic border-l-4 border-gold pl-6 py-2 transition-colors">
                &quot;고객님의 아름다움이 머무는 곳,<br/>뜰오헤어입니다.&quot;
              </p>
           </div>
@@ -52,14 +52,14 @@ export default function About() {
               fill
               src="/images/profile_image.jpg" 
               alt="Director Woomin" 
-              className="object-cover transition-transform duration-1000 group-hover:scale-105"
+              className="object-cover transition-transform duration-1000 group-hover:scale-105 dark:brightness-90"
             />
           </div>
           {/* Decorative Elements */}
-          <div className="absolute -top-12 -right-12 w-48 h-48 border border-stone-200 -z-10 hidden md:block"></div>
-          <div className="absolute -bottom-8 -left-8 bg-stone-100 px-10 py-10 shadow-xl hidden md:block">
-            <p className="font-serif text-4xl font-bold text-stone-800 leading-none">Min.</p>
-            <p className="text-[11px] tracking-[0.3em] text-stone-400 mt-3 uppercase font-bold">Director / Woomin</p>
+          <div className="absolute -top-12 -right-12 w-48 h-48 border border-stone-200 dark:border-stone-800 -z-10 hidden md:block transition-colors"></div>
+          <div className="absolute -bottom-8 -left-8 bg-stone-100 dark:bg-stone-800 px-10 py-10 shadow-xl hidden md:block transition-colors">
+            <p className="font-serif text-4xl font-bold text-stone-800 dark:text-stone-100 leading-none transition-colors">Min.</p>
+            <p className="text-[11px] tracking-[0.3em] text-stone-400 dark:text-stone-500 mt-3 uppercase font-bold transition-colors">Director / Woomin</p>
           </div>
         </motion.div>
       </div>

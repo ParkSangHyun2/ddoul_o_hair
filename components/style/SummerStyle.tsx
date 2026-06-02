@@ -13,15 +13,15 @@ const shopImages = [
 
 export default function SummerStyle() {
     return (
-        <section className="px-6 py-12">
-            <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-end justify-between gap-4 mb-20 border-b border-stone-200 pb-12">
+        <section className="px-6 py-12 transition-colors duration-700">
+            <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-end justify-between gap-4 mb-20 border-b border-stone-200 dark:border-stone-800 pb-12 transition-colors">
                 <div className="space-y-4 text-left">
                     <span className="text-gold font-bold tracking-[0.4em] text-xs uppercase">The Sanctuary</span>
-                    <h2 className="text-6xl md:text-8xl font-serif font-bold text-stone-800 tracking-tighter leading-none">
+                    <h2 className="text-6xl md:text-8xl font-serif font-bold text-stone-800 dark:text-stone-100 tracking-tighter leading-none transition-colors">
                         OUR<br/>SPACE
                     </h2>
                 </div>
-                <p className="text-stone-400 font-serif italic text-xl max-w-xs text-right">
+                <p className="text-stone-400 dark:text-stone-500 font-serif italic text-xl max-w-xs text-right transition-colors">
                     &quot;당신의 아름다움이 머무는 곳, 뜰오헤어의 감각적인 공간입니다.&quot;
                 </p>
             </div>
@@ -35,7 +35,7 @@ export default function SummerStyle() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: index * 0.1 }}
                         viewport={{ once: true }}
-                        className={`group relative overflow-hidden bg-stone-100 shadow-xl ${image.gridClass}`}
+                        className={`group relative overflow-hidden bg-stone-100 dark:bg-stone-800 shadow-xl transition-colors ${image.gridClass}`}
                     >
                         <div className="relative w-full h-full">
                             <Image

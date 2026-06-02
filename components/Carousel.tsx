@@ -17,10 +17,10 @@ export default function Carousel() {
     }, [reviews.length]);
 
     return (
-        <section className="relative max-w-7xl mx-auto py-24 px-6 overflow-hidden">
+        <section className="relative max-w-7xl mx-auto py-24 px-6 overflow-hidden transition-colors duration-700">
             <div className="flex flex-col items-center mb-16 space-y-4">
-                <span className="text-gold font-bold tracking-[0.4em] text-xs uppercase">Client Voice</span>
-                <h2 className="text-4xl md:text-6xl font-serif font-bold text-stone-800 tracking-tight text-center">Verified Reviews</h2>
+                <span className="text-gold font-bold tracking-[0.4em] text-xs uppercase text-center">Client Voice</span>
+                <h2 className="text-4xl md:text-6xl font-serif font-bold text-stone-800 dark:text-stone-100 tracking-tight text-center transition-colors">Verified Reviews</h2>
             </div>
 
             <div className="relative min-h-[500px] md:min-h-[600px] w-full flex items-center justify-center">
@@ -41,7 +41,7 @@ export default function Carousel() {
                                 alt="Review work"
                                 className="object-cover"
                             />
-                            <div className="absolute inset-0 bg-stone-900/10"></div>
+                            <div className="absolute inset-0 bg-stone-900/10 dark:bg-stone-900/20"></div>
                         </div>
 
                         {/* Review Content */}
@@ -49,12 +49,12 @@ export default function Carousel() {
                             <svg className="w-12 h-12 text-gold opacity-30" fill="currentColor" viewBox="0 0 32 32">
                                 <path d="M10 8c-3.3 0-6 2.7-6 6v10h10V14H8c0-2.2 1.8-4 4-4V8zm14 0c-3.3 0-6 2.7-6 6v10h10V14h-6c0-2.2 1.8-4 4-4V8z"/>
                             </svg>
-                            <p className="text-xl md:text-3xl font-serif text-stone-700 leading-relaxed italic">
+                            <p className="text-xl md:text-3xl font-serif text-stone-700 dark:text-stone-300 leading-relaxed italic transition-colors">
                                 &quot;{reviews[index].text}&quot;
                             </p>
                             <div className="space-y-1">
                                 <div className="w-8 h-[1px] bg-gold mb-4"></div>
-                                <p className="text-stone-800 font-bold tracking-widest text-sm uppercase">
+                                <p className="text-stone-800 dark:text-stone-100 font-bold tracking-widest text-sm uppercase transition-colors">
                                     {reviews[index].author}
                                 </p>
                                 <div className="flex text-gold">
@@ -70,7 +70,7 @@ export default function Carousel() {
                 </AnimatePresence>
 
                 {/* Progress Bar */}
-                <div className="absolute bottom-0 left-0 w-full h-[1px] bg-stone-200">
+                <div className="absolute bottom-0 left-0 w-full h-[1px] bg-stone-200 dark:bg-stone-800 transition-colors">
                     <motion.div
                         key={index}
                         initial={{ width: 0 }}

@@ -10,13 +10,13 @@ export default function YoutubeGrid() {
     ]
 
     return (
-        <section className="max-w-7xl mx-auto px-6 pb-48">
-            <div className="flex flex-col md:flex-row items-baseline justify-between mb-16 border-b border-stone-100 pb-8">
+        <section className="max-w-7xl mx-auto px-6 pb-48 transition-colors duration-700">
+            <div className="flex flex-col md:flex-row items-baseline justify-between mb-16 border-b border-stone-100 dark:border-stone-800 pb-8 transition-colors">
                 <div className="space-y-2">
                     <span className="text-gold font-bold tracking-[0.4em] text-xs uppercase">Motion Collection</span>
-                    <h2 className="text-4xl md:text-5xl font-serif font-bold text-stone-800 tracking-tight">Style in Motion</h2>
+                    <h2 className="text-4xl md:text-5xl font-serif font-bold text-stone-800 dark:text-stone-100 tracking-tight transition-colors">Style in Motion</h2>
                 </div>
-                <p className="text-stone-400 text-sm font-light italic mt-4 md:mt-0">
+                <p className="text-stone-400 dark:text-stone-500 text-sm font-light italic mt-4 md:mt-0 transition-colors">
                     영상으로 확인하는 뜰오헤어의 생생한 스타일 라이브러리
                 </p>
             </div>
