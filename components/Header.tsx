@@ -38,6 +38,7 @@ export default function Header() {
         { name: '브랜드 소개', href: '/about' },
         { name: '갤러리', href: '/gallery' },
         { name: '시술 안내', href: '/services' },
+        { name: '헤어 매거진', href: '/blog' },
         { name: '오시는 길', href: '/contact' },
     ]
 
