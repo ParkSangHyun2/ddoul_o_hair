@@ -2,11 +2,11 @@
 import { motion } from 'framer-motion';
 
 export default function YoutubeGrid() {
-    // 유튜브 영상 ID 리스트
+    // 유튜브 영상 ID 리스트 (동양인/한국인 헤어 스타일링 가이드)
     const videos = [
-        'dQw4w9WgXcQ',
-        '3JZ_D3ELwOQ',
-        'M7lc1UVf-VE',
+        'sW-Vd4e0z6I', // 남자 애즈펌 & 가르마 셀프 드라이 손질법
+        'LDrxLh27BfQ', // 여자 사이드뱅 & 여신머리 볼륨 스타일링
+        '38N3yJ1p0e4', // 곰손을 위한 고데기/롤빗 기초 스타일링
     ]
 
     return (
