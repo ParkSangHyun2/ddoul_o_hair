@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MarqueeNotice from "@/components/MarqueeNotice";
 import DotCharacters from "@/components/DotCharacters";
+import { Analytics } from "@vercel/analytics/next";
 
 const cormorant = Cormorant_Garamond({
     variable: "--font-serif",
@@ -119,6 +120,7 @@ export default function RootLayout({
         {children}
     </main>
     <Footer/>
+    <Analytics />
     </body>
 </html>);
 }

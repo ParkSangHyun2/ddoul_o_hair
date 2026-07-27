@@ -10,6 +10,7 @@
     "abcPostbuild": "tsx scripts/generate-sitemap.ts"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "date-fns": "^4.1.0",
     "framer-motion": "^12.40.0",
     "next": "^16.2.6",
