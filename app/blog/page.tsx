@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import posts from '@/data/posts.json';
 
 export const metadata: Metadata = {
@@ -32,44 +33,59 @@ export default function BlogListPage() {
             {/* Articles List */}
             <section className="max-w-5xl mx-auto px-6 -mt-12 relative z-20">
                 <div className="grid grid-cols-1 gap-12">
-                    {posts.map((post, idx) => (
-                        <article 
-                            key={post.id}
-                            className="bg-white p-8 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-stone-100 hover:shadow-[0_30px_70px_rgba(0,0,0,0.08)] transition-all duration-500 group flex flex-col md:flex-row gap-8 items-start md:items-center"
-                        >
-                            {/* Visual Decor */}
-                            <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 bg-stone-100 rounded-full flex items-center justify-center border border-stone-200 group-hover:bg-stone-900 group-hover:border-stone-900 transition-all duration-500">
-                                <span className="text-xl md:text-2xl font-serif font-bold text-stone-400 group-hover:text-gold transition-colors duration-500">
-                                    0{idx + 1}
-                                </span>
-                            </div>
+                    {posts.map((post, idx) => {
+                        // 이미지가 등록되지 않았으면 기본 세련된 흑백 로고 이미지를 사용
+                        const imageSrc = (post as any).image || "/images/shop/right_side.webp";
 
-                            <div className="flex-1 space-y-4">
-                                <div className="flex items-center space-x-4 text-xs text-stone-400">
-                                    <time dateTime={post.date}>{post.date}</time>
-                                    <span className="w-1 h-1 bg-stone-300 rounded-full"></span>
-                                    <span className="text-gold tracking-[0.2em] font-semibold text-[10px] uppercase">Hair Care & Style</span>
+                        return (
+                            <article 
+                                key={post.id}
+                                className="bg-white shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-stone-100 hover:shadow-[0_30px_70px_rgba(0,0,0,0.08)] transition-all duration-500 group flex flex-col md:flex-row overflow-hidden"
+                            >
+                                {/* Image Area */}
+                                <div className="relative w-full md:w-[320px] h-[220px] md:h-auto flex-shrink-0 overflow-hidden bg-stone-100">
+                                    <Image
+                                        src={imageSrc}
+                                        alt={post.title}
+                                        fill
+                                        sizes="(max-w-768px) 100vw, 320px"
+                                        className="object-cover transition-transform duration-750 group-hover:scale-105"
+                                        priority={idx < 3}
+                                    />
+                                    <div className="absolute top-4 left-4 bg-stone-900/80 backdrop-blur-md px-3 py-1 border border-gold/30">
+                                        <span className="text-[10px] font-serif text-gold tracking-widest">
+                                            0{idx + 1}
+                                        </span>
+                                    </div>
                                 </div>
-                                <h2 className="text-2xl md:text-3xl font-serif font-semibold text-stone-800 group-hover:text-gold transition-colors duration-500 leading-snug">
-                                    <Link href={`/blog/${post.id}`} className="block">
-                                        {post.title}
-                                    </Link>
-                                </h2>
-                                <p className="text-stone-500 text-sm md:text-base leading-relaxed font-light line-clamp-2">
-                                    {post.excerpt}
-                                </p>
-                                <div className="pt-2">
-                                    <Link 
-                                        href={`/blog/${post.id}`}
-                                        className="inline-flex items-center text-xs tracking-[0.3em] font-bold text-stone-800 hover:text-gold uppercase transition-colors"
-                                    >
-                                        Read Journal
-                                        <span className="ml-2 transform group-hover:translate-x-1 transition-transform">→</span>
-                                    </Link>
+
+                                <div className="flex-1 p-8 md:p-10 space-y-4 flex flex-col justify-center">
+                                    <div className="flex items-center space-x-4 text-xs text-stone-400">
+                                        <time dateTime={post.date}>{post.date}</time>
+                                        <span className="w-1 h-1 bg-stone-300 rounded-full"></span>
+                                        <span className="text-gold tracking-[0.2em] font-semibold text-[10px] uppercase">Hair Care & Style</span>
+                                    </div>
+                                    <h2 className="text-xl md:text-2xl font-serif font-semibold text-stone-800 group-hover:text-gold transition-colors duration-500 leading-snug">
+                                        <Link href={`/blog/${post.id}`} className="block">
+                                            {post.title}
+                                        </Link>
+                                    </h2>
+                                    <p className="text-stone-500 text-sm leading-relaxed font-light line-clamp-2">
+                                        {post.excerpt}
+                                    </p>
+                                    <div className="pt-2">
+                                        <Link 
+                                            href={`/blog/${post.id}`}
+                                            className="inline-flex items-center text-xs tracking-[0.3em] font-bold text-stone-800 hover:text-gold uppercase transition-colors"
+                                        >
+                                            Read Journal
+                                            <span className="ml-2 transform group-hover:translate-x-1 transition-transform">→</span>
+                                        </Link>
+                                    </div>
                                 </div>
-                            </div>
-                        </article>
-                    ))}
+                            </article>
+                        );
+                    })}
                 </div>
             </section>
 

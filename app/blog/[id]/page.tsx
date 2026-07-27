@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import posts from '@/data/posts.json';
 
 interface Props {
@@ -39,6 +40,8 @@ export default async function BlogPostDetailPage({ params }: Props) {
     if (!post) {
         notFound();
     }
+
+    const imageSrc = (post as any).image;
 
     // 본문 줄바꿈 처리 및 문단 구성
     const paragraphs = post.content.split('\n\n');
@@ -80,25 +83,28 @@ export default async function BlogPostDetailPage({ params }: Props) {
                     </div>
                 </header>
 
+                {/* Article Main Image */}
+                {imageSrc && (
+                    <div className="relative w-full h-[280px] md:h-[450px] mt-12 bg-stone-100 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-stone-200">
+                        <Image
+                            src={imageSrc}
+                            alt={post.title}
+                            fill
+                            sizes="(max-w-768px) 100vw, 768px"
+                            className="object-cover"
+                            priority
+                        />
+                    </div>
+                )}
+
                 {/* Article Body */}
                 <div className="mt-12 space-y-8 text-stone-700 text-base md:text-lg leading-relaxed font-light">
                     {paragraphs.map((p, idx) => {
                         // 첫 번째 단락(리드문) 스타일 강조
                         if (idx === 0) {
                             return (
-                                <p key={idx} className="text-xl md:text-2xl font-serif italic text-stone-500 font-light border-l-4 border-gold pl-6 py-2 my-8">
+                                <p key={idx} className="text-xl md:text-2xl font-serif italic text-stone-600 font-light border-l-4 border-gold pl-6 py-2 my-8">
                                     {p}
-                                </p>
-                            );
-                        }
-
-                        // 소제목(첫째, 둘째 등으로 시작하는 문단) 파싱 및 서브헤딩 강조
-                        if (p.startsWith('첫째,') || p.startsWith('둘째,') || p.startsWith('셋째,') || p.startsWith('넷째,')) {
-                            const [point, ...rest] = p.split(' ');
-                            return (
-                                <p key={idx} className="text-stone-700">
-                                    <strong className="text-stone-900 font-semibold block text-lg md:text-xl font-serif mb-2 text-gold">{point}</strong>
-                                    {rest.join(' ')}
                                 </p>
                             );
                         }
