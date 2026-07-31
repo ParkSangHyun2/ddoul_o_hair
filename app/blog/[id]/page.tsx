@@ -175,6 +175,17 @@ export default async function BlogPostDetailPage({ params }: Props) {
                 }
             }
 
+            // 2.7 쿠팡 파트너스 안내 문구 감지 및 스타일링
+            if (trimmed.includes('쿠팡 파트너스 활동의 일환')) {
+                flushList(idx);
+                elements.push(
+                    <div key={idx} className="text-center text-stone-400 text-xs italic my-4 tracking-wide font-light">
+                        {trimmed}
+                    </div>
+                );
+                return;
+            }
+
             // 3. 리스트 아이템 (* 또는 -)
             if (trimmed.startsWith('* ') || trimmed.startsWith('- ')) {
                 inList = true;
