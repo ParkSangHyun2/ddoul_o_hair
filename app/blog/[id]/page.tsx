@@ -66,13 +66,41 @@ export default async function BlogPostDetailPage({ params }: Props) {
             }
         };
 
-        const parseInlineStyles = (text: string) => {
-            const parts = text.split(/(\*\*.*?\*\*)/g);
+        const parseInlineStyles = (text: string): React.ReactNode => {
+            // 1. 마크다운 링크 [텍스트](링크) 파싱
+            const linkRegex = /(\[.*?\]\(.*?\))/g;
+            const parts = text.split(linkRegex);
+
             return parts.map((part, idx) => {
-                if (part.startsWith('**') && part.endsWith('**')) {
-                    return <strong key={idx} className="font-semibold text-stone-900">{part.slice(2, -2)}</strong>;
+                const linkMatch = part.match(/^\[(.*?)\]\((.*?)\)$/);
+                if (linkMatch) {
+                    const linkText = linkMatch[1];
+                    const linkUrl = linkMatch[2];
+                    return (
+                        <a 
+                            key={idx} 
+                            href={linkUrl} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="text-gold hover:underline font-semibold"
+                        >
+                            {linkText}
+                        </a>
+                    );
                 }
-                return part;
+
+                // 2. 볼드 **강조** 파싱
+                const boldParts = part.split(/(\*\*.*?\*\*)/g);
+                return boldParts.map((subPart, subIdx) => {
+                    if (subPart.startsWith('**') && subPart.endsWith('**')) {
+                        return (
+                            <strong key={`${idx}-${subIdx}`} className="font-semibold text-stone-900">
+                                {subPart.slice(2, -2)}
+                            </strong>
+                        );
+                    }
+                    return subPart;
+                });
             });
         };
 
@@ -118,6 +146,33 @@ export default async function BlogPostDetailPage({ params }: Props) {
                     </div>
                 );
                 return;
+            }
+
+            // 2.5 iframe 태그 지원 (광고 위젯 등)
+            if (trimmed.startsWith('<iframe')) {
+                flushList(idx);
+                const srcMatch = trimmed.match(/src="([^"]+)"/);
+                const widthMatch = trimmed.match(/width="([^"]+)"/);
+                const heightMatch = trimmed.match(/height="([^"]+)"/);
+                if (srcMatch) {
+                    const src = srcMatch[1];
+                    const width = widthMatch ? widthMatch[1] : "120";
+                    const height = heightMatch ? heightMatch[1] : "240";
+                    elements.push(
+                        <div key={idx} className="my-6 flex justify-center">
+                            <iframe
+                                src={src}
+                                width={width}
+                                height={height}
+                                frameBorder="0"
+                                scrolling="no"
+                                referrerPolicy="unsafe-url"
+                                className="border-0"
+                            />
+                        </div>
+                    );
+                    return;
+                }
             }
 
             // 3. 리스트 아이템 (* 또는 -)
