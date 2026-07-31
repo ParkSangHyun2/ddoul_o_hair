@@ -231,8 +231,14 @@ export default async function BlogPostDetailPage({ params }: Props) {
                     </h1>
 
                     <div className="flex items-center justify-center md:justify-start space-x-3 pt-2">
-                        <div className="w-8 h-8 rounded-full bg-stone-200 overflow-hidden flex items-center justify-center border border-stone-300">
-                            <span className="text-[10px] font-bold text-stone-600">Ddeul</span>
+                        <div className="relative w-8 h-8 rounded-full overflow-hidden border border-stone-300 bg-stone-100">
+                            <Image
+                                src="/images/profile_image.jpg"
+                                alt="최우민 원장 프로필"
+                                fill
+                                className="object-cover"
+                                sizes="32px"
+                            />
                         </div>
                         <div className="text-left">
                             <p className="text-xs font-semibold text-stone-800">최우민 원장</p>
