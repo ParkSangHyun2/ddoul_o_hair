@@ -43,8 +43,111 @@ export default async function BlogPostDetailPage({ params }: Props) {
 
     const imageSrc = (post as any).image;
 
-    // 본문 줄바꿈 처리 및 문단 구성
-    const paragraphs = post.content.split('\n\n');
+    // 마크다운 파서 및 JSX 렌더러 함수
+    const renderContent = (content: string) => {
+        const sections = content.split('\n');
+        let inList = false;
+        const listItems: string[] = [];
+        const elements: React.ReactNode[] = [];
+
+        const flushList = (key: string | number) => {
+            if (listItems.length > 0) {
+                elements.push(
+                    <ul key={`list-${key}`} className="list-disc pl-6 space-y-2 my-4">
+                        {listItems.map((item, idx) => (
+                            <li key={idx} className="font-light text-stone-700">
+                                {parseInlineStyles(item)}
+                            </li>
+                        ))}
+                    </ul>
+                );
+                listItems.length = 0;
+                inList = false;
+            }
+        };
+
+        const parseInlineStyles = (text: string) => {
+            const parts = text.split(/(\*\*.*?\*\*)/g);
+            return parts.map((part, idx) => {
+                if (part.startsWith('**') && part.endsWith('**')) {
+                    return <strong key={idx} className="font-semibold text-stone-900">{part.slice(2, -2)}</strong>;
+                }
+                return part;
+            });
+        };
+
+        sections.forEach((section, idx) => {
+            const trimmed = section.trim();
+            if (!trimmed) {
+                flushList(idx);
+                return;
+            }
+
+            // 1. 소제목 (###)
+            if (trimmed.startsWith('### ')) {
+                flushList(idx);
+                const title = trimmed.replace('### ', '');
+                elements.push(
+                    <h3 key={idx} className="text-xl md:text-2xl font-serif font-semibold text-stone-800 mt-10 mb-4">
+                        {parseInlineStyles(title)}
+                    </h3>
+                );
+                return;
+            }
+
+            // 2. 이미지 태그 (![alt](src) or ![alt](/src))
+            const imgMatch = trimmed.match(/^!\[(.*?)\]\((.*?)\)$/);
+            if (imgMatch) {
+                flushList(idx);
+                const alt = imgMatch[1];
+                const src = imgMatch[2];
+                elements.push(
+                    <div key={idx} className="my-8 relative w-full h-[220px] md:h-[380px] overflow-hidden shadow-sm border border-stone-200 bg-stone-100">
+                        <Image
+                            src={src}
+                            alt={alt}
+                            fill
+                            className="object-cover"
+                            sizes="(max-w-768px) 100vw, 768px"
+                        />
+                        {alt && (
+                            <div className="absolute bottom-2 right-2 bg-stone-900/60 text-white text-[9px] px-2 py-0.5 tracking-wider uppercase">
+                                {alt}
+                            </div>
+                        )}
+                    </div>
+                );
+                return;
+            }
+
+            // 3. 리스트 아이템 (* 또는 -)
+            if (trimmed.startsWith('* ') || trimmed.startsWith('- ')) {
+                inList = true;
+                listItems.push(trimmed.slice(2));
+                return;
+            }
+
+            // 4. 일반 단락
+            flushList(idx);
+            const isFirstParagraph = elements.length === 0;
+            if (isFirstParagraph) {
+                elements.push(
+                    <p key={idx} className="text-xl md:text-2xl font-serif italic text-stone-600 font-light border-l-4 border-gold pl-6 py-2 my-8 leading-relaxed">
+                        {parseInlineStyles(trimmed)}
+                    </p>
+                );
+            } else {
+                elements.push(
+                    <p key={idx} className="leading-relaxed mb-6 font-light">
+                        {parseInlineStyles(trimmed)}
+                    </p>
+                );
+            }
+        });
+
+        flushList('final');
+        return elements;
+    };
 
     return (
         <main className="min-h-screen bg-stone-50 pb-32">
@@ -99,22 +202,7 @@ export default async function BlogPostDetailPage({ params }: Props) {
 
                 {/* Article Body */}
                 <div className="mt-12 space-y-8 text-stone-700 text-base md:text-lg leading-relaxed font-light">
-                    {paragraphs.map((p, idx) => {
-                        // 첫 번째 단락(리드문) 스타일 강조
-                        if (idx === 0) {
-                            return (
-                                <p key={idx} className="text-xl md:text-2xl font-serif italic text-stone-600 font-light border-l-4 border-gold pl-6 py-2 my-8">
-                                    {p}
-                                </p>
-                            );
-                        }
-
-                        return (
-                            <p key={idx}>
-                                {p}
-                            </p>
-                        );
-                    })}
+                    {renderContent(post.content)}
                 </div>
 
                 {/* Article Footer */}
