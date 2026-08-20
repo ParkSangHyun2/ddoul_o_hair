@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route === '' ? 1.0 : 0.8,
   }));
 
-  // 2. 20개 블로그 포스트 동적 경로들 설정 (posts.json 기반)
+  // 2. 전체 블로그 포스트 동적 경로들 설정 (posts.json 기반)
   const blogRoutes = posts.map((post) => ({
     url: `${baseUrl}/blog/${post.id}`,
     lastModified: new Date(post.date),
