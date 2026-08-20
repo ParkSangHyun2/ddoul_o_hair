@@ -20,28 +20,50 @@ export default function Contact() {
                 const mapContainer = document.getElementById('map')
                 if (!mapContainer) return
 
-                const mapOption = {
-                    center: new kakao.maps.LatLng(36.9796, 126.9284),
-                    level: 2,
+                const targetAddress = business.address || "경기 평택시 안중읍 안중로 8 1층"
+                const defaultCoords = new kakao.maps.LatLng(36.9823, 126.9257)
+
+                const renderMap = (coords: any) => {
+                    const mapOption = {
+                        center: coords,
+                        level: 3,
+                    }
+                    const map = new kakao.maps.Map(mapContainer, mapOption)
+
+                    const marker = new kakao.maps.Marker({
+                        position: coords,
+                        map: map
+                    })
+
+                    const infowindow = new kakao.maps.InfoWindow({
+                        content: '<div style="padding:6px 12px;font-size:12px;font-weight:bold;color:#1c1917;background:#fff;border-radius:4px;border:1px solid #d4af37;text-align:center;">뜰오헤어 안중점</div>'
+                    })
+                    infowindow.open(map, marker)
                 }
 
-                const map = new kakao.maps.Map(mapContainer, mapOption)
-                
-                // 마커 추가
-                const markerPosition = new kakao.maps.LatLng(36.9796, 126.9284)
-                const marker = new kakao.maps.Marker({
-                    position: markerPosition
-                })
-                marker.setMap(map)
+                // 카카오 Geocoder 서비스로 실시간 주소 기반 정밀 좌표 검색
+                if (kakao.maps.services && kakao.maps.services.Geocoder) {
+                    const geocoder = new kakao.maps.services.Geocoder()
+                    geocoder.addressSearch(targetAddress, (result: any, status: any) => {
+                        if (status === kakao.maps.services.Status.OK && result.length > 0) {
+                            const coords = new kakao.maps.LatLng(result[0].y, result[0].x)
+                            renderMap(coords)
+                        } else {
+                            renderMap(defaultCoords)
+                        }
+                    })
+                } else {
+                    renderMap(defaultCoords)
+                }
             })
         }
-    }, [scriptLoaded])
+    }, [scriptLoaded, business.address])
 
     return (
         <main className="min-h-screen bg-stone-50 pb-32">
             <Script
                 strategy="afterInteractive"
-                src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=5e3b05819caae8676548c85b7130d015&autoload=false`}
+                src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=5e3b05819caae8676548c85b7130d015&libraries=services&autoload=false`}
                 onLoad={() => setScriptLoaded(true)}
             />
 
@@ -79,9 +101,9 @@ export default function Contact() {
                             <div className="space-y-2">
                                 <h3 className="text-xs font-bold text-gold uppercase tracking-[0.3em]">Address</h3>
                                 <p className="text-2xl font-serif font-bold text-stone-800 leading-tight">
-                                    {business.address || "경기도 평택시 안중읍 송담6길 3"}
+                                    {business.address || "경기 평택시 안중읍 안중로 8 1층"}
                                 </p>
-                                <p className="text-stone-400 text-sm font-light italic">Songdam 6-gil 3, Anjung, Pyeongtaek</p>
+                                <p className="text-stone-400 text-sm font-light italic">Anjung-ro 8, 1F, Anjung-eup, Pyeongtaek</p>
                             </div>
 
                             <div className="space-y-4 pt-8 border-t border-stone-100">

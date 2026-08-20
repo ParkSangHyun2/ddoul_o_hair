@@ -10,11 +10,11 @@ export default function AddressInfo() {
                 </div>
                 <div className="flex items-center gap-2">
                     <FaMapMarkerAlt className="text-gray-500 w-4 h-4" />
-                    <span>경기도 평택시 안중읍 송담6길 3</span>
+                    <span>경기 평택시 안중읍 안중로 8 1층</span>
                 </div>
                 <div className="flex items-center gap-2">
                     <FaPhoneAlt className="text-gray-500 w-4 h-4" />
-                    <a href="tel:01011110000" className="underline">010-1111-0000</a>
+                    <a href="tel:01030236114" className="underline">010-3023-6114</a>
                 </div>
             </div>
         </div>

@@ -111,7 +111,9 @@ export default function RootLayout({
                     "telephone": "010-3023-6114",
                     "address": {
                         "@type": "PostalAddress",
-                        "addressLocality": "안중",
+                        "streetAddress": "안중로 8 1층",
+                        "addressLocality": "안중읍",
+                        "addressRegion": "경기도 평택시",
                         "addressCountry": "KR"
                     }
                 }),
