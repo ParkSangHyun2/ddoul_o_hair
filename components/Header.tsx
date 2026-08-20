@@ -63,41 +63,64 @@ export default function Header() {
                         />
                     </Link>
 
-                    {/* 데스크탑 메뉴 */}
-                    <nav className="hidden md:flex space-x-12">
-                        {navItems.map((item) => (
-                            <Link 
-                                key={item.name} 
-                                href={item.href} 
-                                className="text-[11px] tracking-[0.4em] font-bold text-stone-800 uppercase hover:text-gold transition-colors relative group"
-                            >
-                                {item.name}
-                                <span className={`absolute -bottom-2 left-0 h-[1px] bg-gold transition-all duration-300 ${pathname === item.href ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
-                            </Link >
-                        ))}
-                    </nav>
+                    {/* 데스크탑 메뉴 & 예약 버튼 */}
+                    <div className="hidden md:flex items-center space-x-10">
+                        <nav className="flex space-x-10">
+                            {navItems.map((item) => (
+                                <Link 
+                                    key={item.name} 
+                                    href={item.href} 
+                                    className="text-[11px] tracking-[0.35em] font-bold text-stone-800 dark:text-stone-200 uppercase hover:text-gold transition-colors relative group"
+                                >
+                                    {item.name}
+                                    <span className={`absolute -bottom-2 left-0 h-[1px] bg-gold transition-all duration-300 ${pathname === item.href ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+                                </Link >
+                            ))}
+                        </nav>
+                        
+                        <a
+                            href="https://m.place.naver.com/hairshop/2042566657/reservation"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 px-4 py-2 text-[11px] font-bold tracking-[0.2em] uppercase rounded-full border border-stone-800 dark:border-stone-300 text-stone-900 dark:text-stone-100 hover:bg-stone-900 hover:text-white dark:hover:bg-white dark:hover:text-stone-900 transition-all duration-300 shadow-sm"
+                        >
+                            <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                            네이버 예약
+                        </a>
+                    </div>
 
-                    {/* 모바일 햄버거 버튼 */}
-                    <button
-                        className="md:hidden relative z-[110] p-2 text-stone-800"
-                        onClick={() => setMenuOpen(!menuOpen)}
-                        aria-label="Toggle Menu"
-                    >
-                        <div className="w-6 h-5 relative flex flex-col justify-between">
-                            <motion.span 
-                                animate={menuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
-                                className="w-full h-[1.5px] bg-current origin-center"
-                            />
-                            <motion.span 
-                                animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
-                                className="w-full h-[1.5px] bg-current"
-                            />
-                            <motion.span 
-                                animate={menuOpen ? { rotate: -45, y: -10 } : { rotate: 0, y: 0 }}
-                                className="w-full h-[1.5px] bg-current origin-center"
-                            />
-                        </div>
-                    </button>
+                    {/* 모바일 우측 (예약 버튼 + 햄버거 버튼) */}
+                    <div className="flex items-center gap-3 md:hidden relative z-[110]">
+                        <a
+                            href="https://m.place.naver.com/hairshop/2042566657/reservation"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-3 py-1.5 text-[10px] font-bold tracking-wider rounded-full bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900 shadow-sm flex items-center gap-1.5 transition-transform active:scale-95"
+                        >
+                            <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                            예약
+                        </a>
+                        <button
+                            className="p-2 text-stone-800 dark:text-stone-200"
+                            onClick={() => setMenuOpen(!menuOpen)}
+                            aria-label="Toggle Menu"
+                        >
+                            <div className="w-6 h-5 relative flex flex-col justify-between">
+                                <motion.span 
+                                    animate={menuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
+                                    className="w-full h-[1.5px] bg-current origin-center"
+                                />
+                                <motion.span 
+                                    animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
+                                    className="w-full h-[1.5px] bg-current"
+                                />
+                                <motion.span 
+                                    animate={menuOpen ? { rotate: -45, y: -10 } : { rotate: 0, y: 0 }}
+                                    className="w-full h-[1.5px] bg-current origin-center"
+                                />
+                            </div>
+                        </button>
+                    </div>
                 </div>
             </header>
 
@@ -116,16 +139,16 @@ export default function Header() {
                             <span className="text-[50vw] font-serif font-black tracking-tighter text-white whitespace-nowrap">DDEUL-O</span>
                         </div>
 
-                        <nav className="relative z-10 w-full max-w-xs flex flex-col space-y-10">
+                        <nav className="relative z-10 w-full max-w-xs flex flex-col space-y-8">
                             {navItems.map((item, i) => (
                                 <motion.div
                                     key={item.name}
                                     initial={{ opacity: 0, x: -20 }}
                                     animate={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: 0.1 * (i + 1) }}
+                                    transition={{ delay: 0.08 * (i + 1) }}
                                 >
                                     <Link 
-                                        href={item.href}
+                                        href={item.href} 
                                         className={`block text-2xl font-serif font-bold tracking-[0.2em] uppercase transition-colors ${
                                             pathname === item.href ? 'text-gold' : 'text-stone-300 hover:text-white'
                                         }`}
@@ -135,6 +158,23 @@ export default function Header() {
                                     </Link >
                                 </motion.div>
                             ))}
+
+                            <motion.div
+                                initial={{ opacity: 0, y: 15 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.5 }}
+                                className="pt-4"
+                            >
+                                <a
+                                    href="https://m.place.naver.com/hairshop/2042566657/reservation"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="w-full inline-flex items-center justify-center gap-2 py-3 px-6 bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white text-xs font-bold tracking-widest uppercase rounded-full shadow-lg transition-all"
+                                >
+                                    <span className="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                                    네이버 실시간 예약하기
+                                </a>
+                            </motion.div>
                         </nav>
 
                         {/* Mobile Footer Info */}
@@ -142,7 +182,7 @@ export default function Header() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.6 }}
-                            className="absolute bottom-16 left-0 w-full text-center space-y-4"
+                            className="absolute bottom-12 left-0 w-full text-center space-y-3"
                         >
                             <div className="w-8 h-[1px] bg-gold/30 mx-auto"></div>
                             <p className="text-[9px] tracking-[0.4em] text-stone-500 uppercase font-bold">Premium Experience</p>

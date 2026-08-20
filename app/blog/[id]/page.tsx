@@ -217,6 +217,45 @@ export default async function BlogPostDetailPage({ params }: Props) {
 
     return (
         <main className="min-h-screen bg-stone-50 pb-32">
+            {/* Schema.org BlogPosting Structured Data */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BlogPosting",
+                        "headline": post.title,
+                        "description": post.excerpt,
+                        "image": imageSrc
+                            ? (imageSrc.startsWith('http') ? imageSrc : `https://ddeul-o-hair.vercel.app${imageSrc}`)
+                            : "https://ddeul-o-hair.vercel.app/logo-full.PNG",
+                        "datePublished": post.date,
+                        "dateModified": post.date,
+                        "author": {
+                            "@type": "Person",
+                            "name": "최우민",
+                            "jobTitle": "대표 원장",
+                            "worksFor": {
+                                "@type": "HairSalon",
+                                "name": "뜰오헤어"
+                            }
+                        },
+                        "publisher": {
+                            "@type": "HairSalon",
+                            "name": "뜰오헤어",
+                            "logo": {
+                                "@type": "ImageObject",
+                                "url": "https://ddeul-o-hair.vercel.app/logo-full.PNG"
+                            }
+                        },
+                        "mainEntityOfPage": {
+                            "@type": "WebPage",
+                            "@id": `https://ddeul-o-hair.vercel.app/blog/${post.id}`
+                        }
+                    })
+                }}
+            />
+
             {/* Navigation back */}
             <div className="max-w-4xl mx-auto px-6 pt-12">
                 <Link 
