@@ -21,6 +21,15 @@ const notoSansKR = Noto_Sans_KR({
 });
 
 export const metadata: Metadata = {
+    metadataBase: new URL('https://ddeul-o-hair.vercel.app'),
+    alternates: {
+        canonical: '/',
+    },
+    verification: {
+        other: {
+            'naver-site-verification': '15d00824f2950b45bad538a9ef61a3a65214a125',
+        },
+    },
     title: {
         default: "뜰오헤어 안중점 | 프리미엄 감성 헤어살롱",
         template: "%s | 뜰오헤어 안중점"
